@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		
+	<bean class="p1.Stock" id="stock1">
+		<constructor-arg name="stockId" value="1"></constructor-arg>
+		<constructor-arg name="stockName" value="Infosys"></constructor-arg>
+		<constructor-arg name="bookValue" value="200"></constructor-arg>
+		<constructor-arg name="currentPrice" value="1750"></constructor-arg>
+		<constructor-arg name="high52" value="1900"></constructor-arg>
+		<constructor-arg name="low52" value="1200"></constructor-arg>
+	</bean>
+	
+	<bean class="p1.Stock" id="stock2">
+		<constructor-arg name="stockId" value="2"></constructor-arg>
+		<constructor-arg name="stockName" value="Reliance"></constructor-arg>
+		<constructor-arg name="bookValue" value="150"></constructor-arg>
+		<constructor-arg name="currentPrice" value="2300"></constructor-arg>
+		<constructor-arg name="high52" value="2800"></constructor-arg>
+		<constructor-arg name="low52" value="1600"></constructor-arg>
+	</bean>
+	
+	<bean class="p1.Account" id="account1" autowire="byType">
+		<property name="accontNumber" value="1"></property> 
+		<property name="accountName" value="Yaswanth"></property> 
+		<property name="balance" value="1000"></property> 
+		<property name="branchName" value="GDV"></property> 
+		<property name="state" value="AndhraPradesh"></property> 
+		<property name="country" value="India"></property> 
+		<property name="stock">
+			<list>
+				<ref bean="stock1"/>
+				<ref bean="stock2"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="p1.Account" id="account2" autowire="byType">
+		<property name="accontNumber" value="2"></property> 
+		<property name="accountName" value="Srinivas"></property> 
+		<property name="balance" value="5000"></property> 
+		<property name="branchName" value="VJW"></property> 
+		<property name="state" value="AndhraPradesh"></property> 
+		<property name="country" value="India"></property> 
+		<property name="stock">
+			<list>
+				<ref bean="stock1"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="p1.Account" id="account3" autowire="byType">
+		<property name="accontNumber" value="3"></property> 
+		<property name="accountName" value="Murali"></property> 
+		<property name="balance" value="10000"></property> 
+		<property name="branchName" value="VNK"></property> 
+		<property name="state" value="AndhraPradesh"></property> 
+		<property name="country" value="India"></property> 
+		<property name="stock">
+			<list>
+				<ref bean="stock2"/>
+			</list>
+		</property>
+	</bean>	
+</beans>
